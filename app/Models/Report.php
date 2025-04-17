@@ -10,8 +10,12 @@ class Report extends Model
     use HasFactory;
 
     protected $fillable = [
-        '',
-        'statues_id', 
+        'address',
+        'contact',
+        'date',
+        'time',
+        'payment',
+        'service_id', 
         'user_id',
     ];
 
@@ -20,9 +24,9 @@ class Report extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function statue() 
+    public function services() 
     {
-        return $this->belongsTo(Statue::class, 'statues_id'); 
+        return $this->belongsTo(Service::class, 'service_id'); 
     }      
     
 }

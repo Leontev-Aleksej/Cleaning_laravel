@@ -15,8 +15,12 @@ return new class extends Migration
 
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('statues_id')->nullable()->constrained('statues')->onDelete('cascade');
+            $table->string('address');
+            $table->string('contact');
+            $table->string('date');
+            $table->string('time');
+            $table->string('payment');
+            $table->foreignId('services_id')->nullable()->constrained('services')->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
